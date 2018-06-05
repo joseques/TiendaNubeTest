@@ -1,3 +1,44 @@
-<p>
-  list works!
-</p>
+<div class="table-responsive">
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col" id="tableCol1"><input type="checkbox"></th> 
+				<th scope="col" id="tableCol2"></th>
+				<th scope="col" id="tableCol3">Producto</th>
+				<th scope="col" id="tableCol4">Stock</th>
+				<th scope="col" id="tableCol5">Precio original</th>
+				<th scope="col" id="tableCol6">Precio promocional</th>
+				<th scope="col" id="tableCol7">Variaciones</th>
+				<th scope="col" id="tableCol8">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let product of productList">
+				<td><input type="checkbox"></td>
+				<td *ngIf="product.imgs.length < 1; else elseBlock"><img class="img-fluid item-photo" src="assets/img/placeholder.png"></td>
+				<ng-template #elseBlock><td><img class="item-photo" src="{{product.imgs[0]}}"></td></ng-template>
+				<td><a href="#">{{product.name}}</a></td>
+				<td><span class="badge badge-secondary">{{product.stock}}</span></td>
+				<td><span class="badge badge-secondary">AR${{product.price}}</span></td>
+				<td><span class="badge badge-secondary">{{product.promotionalPrice}}</span></td>
+				<td></td>
+				<td>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-secondary"><fa-icon [icon]="['fab', 'facebook-square']"></fa-icon></button>
+						<button type="button" class="btn btn-secondary"><fa-icon [icon]="['fab', 'twitter-square']"></fa-icon></button>
+						<button type="button" class="btn btn-secondary"><fa-icon [icon]="['fab', 'google-plus-square']"></fa-icon></button>
+					</div>
+					<div class="btn-group" role="group" style="margin-left: 5px;">
+						<button type="button" class="btn btn-secondary"><fa-icon [icon]="['fas', 'edit']"></fa-icon></button>
+						<button type="button" class="btn btn-secondary"><fa-icon [icon]="['fas', 'trash-alt']"></fa-icon></button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="col align-self-center" *ngIf="productList.length > 20">
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-secondary" disabled>1</button>
+	</div>
+</div>

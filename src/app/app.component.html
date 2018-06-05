@@ -1,25 +1,17 @@
-
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+		<img class="img-fluid navbar-branding" src="assets/img/logo_tiendanube.png">
+	</a>
+	<ol class="custom-breadcrumb w-100">
+		<li class="breadcrumb-item active" aria-current="page">Mis productos</li>
+	</ol>
+</nav>
 <div class="container-fluid">
 	<div class="row">
 		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-			<div class="sidebar-sticky">
-				<ul class="nav flex-column">
-					<li class="nav-item">
-						<a class="nav-link" routerLink="products" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
-							<span data-feather="home"></span>
-							Listado de productos
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" routerLink="products/new" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
-							<span data-feather="file"></span>
-							Agregar nuevo producto
-						</a>
-					</li>
-				</ul>
-			</div>
+			<app-sidebar></app-sidebar>
 		</nav>
-		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="main-content">
 			<router-outlet></router-outlet>
 		</main>
 	</div>

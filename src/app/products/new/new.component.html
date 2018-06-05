@@ -1,3 +1,45 @@
-<p>
-  new works!
-</p>
+<div class="container">
+	<div class="row" *ngFor="let image of model.imgs">
+		<div class="col">
+			<div class="image-holder  text-center">
+				<img class="img-fluid upload-photo-thumbnail" src="{{image}}">
+			</div>
+		</div>
+	</div>
+	<button type="button" *ngIf="!isLoadingFile; else elseBlock" class="btn btn-primary btn-lg btn-block" (click)="popOpenFileDialog()">Agregar imagen</button>
+	<ng-template #elseBlock>
+		<button type="button" class="btn btn-primary btn-lg btn-block" disabled>
+			<div class="spinner">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+		</button>
+	</ng-template>
+	<input #imgInput type="file" name="imgInput" id="hiddenInput" accept="image/*" (change)="imgChangeInputListener($event)">
+</div>
+<div class="form-group">
+	<label for="inputNombre">Nombre</label>
+	<input type="text" class="form-control" id="inputNombre" [(ngModel)]="model.name" placeholder="Ej: Portavasos con motivos varios">
+</div>
+<div class="form-group">
+	<label for="inputDesc">Descipción</label>
+	<textarea class="form-control" id="inputDesc" [(ngModel)]="model.description" name="inputDesc" rows="3"></textarea>
+</div>
+<div class="form-row">
+	<div class="form-group col-md-3">
+		<label for="inputStock">Precio</label>
+		<div class="input-group mb-3 mr-sm-3">
+			<div class="input-group-prepend">
+				<div class="input-group-text">AR$</div>
+			</div>
+			<input type="text" class="form-control" [(ngModel)]="model.price" id="inputPrecio" name="inputPrecio" placeholder="Precio">
+		</div>
+	</div>
+	<div class="form-group col-md-3">
+		<label for="inputStock">Stock</label>
+		<input type="text" class="form-control mb-3 mr-sm-3" [(ngModel)]="model.stock" id="inputStock" name="inputStock" placeholder="Stock">
+	</div>
+</div>
+<button type="submit" class="btn btn-primary" id="publishButton" (click)="saveProduct()">Publicar producto</button>
+<button type="submit" class="btn btn-secondary" id="cancelButton">Cancelar</button>
