@@ -37,6 +37,9 @@
 		</tbody>
 	</table>
 </div>
+<div class="alert alert-secondary text-center" role="alert" *ngIf="productList.length < 1 ">
+	No hay productos en la lista. Puede agregarlos accediendo en el menú de navegación a la izquierda.
+</div>
 <div class="col align-self-center" *ngIf="productList.length > 20">
 	<div class="btn-group" role="group">
 		<button type="button" class="btn btn-secondary" disabled>1</button>
