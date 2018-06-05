@@ -1,7 +1,11 @@
 # TiendaNubeTest
 Front End Engineer test for TiendaNube / NuvemShop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+## Installation
+
+Run `npm install` to install the required dependencies.
+
+Generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
 ## Development server
 
